@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import static com.example.demo.utils.ConstantUtils.COLLECTION_USER_TOKEN;
-import static com.example.demo.utils.ConstantUtils.JWT;
+import static com.example.demo.utils.Utils.COLLECTION_USER_TOKEN;
+import static com.example.demo.utils.Utils.JWT;
 
 import java.security.Key;
 import java.util.Base64;
