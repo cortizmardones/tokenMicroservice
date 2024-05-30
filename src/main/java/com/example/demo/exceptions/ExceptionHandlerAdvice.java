@@ -14,7 +14,7 @@ public class ExceptionHandlerAdvice {
 	public ResponseEntity<ErrorResponse> handleException(Exception ex) {
 
 		ErrorResponse errorResponse = ErrorResponse.builder()
-				.errorName("Exception")
+				.errorName(ex.getClass().getSimpleName())
 				.errorCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
 				.errorMessage(ex.getMessage())
 				.timestamp(LocalDateTime.now())
@@ -27,7 +27,7 @@ public class ExceptionHandlerAdvice {
 	public ResponseEntity<ErrorResponse> handleInvalidTokenException(InvalidUserException ex) {
 
 		ErrorResponse errorResponse = ErrorResponse.builder()
-				.errorName("InvalidUserException")
+				.errorName(ex.getClass().getSimpleName())
 				.errorCode(HttpStatus.UNAUTHORIZED.value())
 				.errorMessage(ex.getMessage())
 				.timestamp(LocalDateTime.now())

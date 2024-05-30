@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import static com.example.demo.utils.ConstantUtils.COLLECTION_USER_TOKEN;
+import static com.example.demo.utils.ConstantUtils.JWT;
 
 import java.security.Key;
 import java.util.Base64;
@@ -102,10 +103,10 @@ public class TokenServiceImpl implements TokenService {
 //          System.out.println("bodyClaimPersonalizado: " + claimsBody.get("bodyClaimPersonalizado"));
 //          System.out.println();
             
-            return ValidTokenResponse.builder().tokenType("JWT").isValid(true).errorMessage("").build();
+            return ValidTokenResponse.builder().tokenType(JWT).isValid(true).errorMessage("").build();
             
         } catch (SecurityException | IllegalArgumentException | ExpiredJwtException | MalformedJwtException e) {	//System.out.println("Token Inválido: " + token + "\n");
-        	return ValidTokenResponse.builder().tokenType("JWT").isValid(false).errorMessage(e.getMessage()).build();
+        	return ValidTokenResponse.builder().tokenType(JWT).isValid(false).errorMessage(e.getMessage()).build();
         }
     }
     
