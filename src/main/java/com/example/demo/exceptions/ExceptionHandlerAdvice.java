@@ -41,7 +41,6 @@ public class ExceptionHandlerAdvice {
 		return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
 	}
 	
-	
 	public String getDateTime() {
         ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneId.of(CHILE_TIME_ZONE));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_FORMATTER);
