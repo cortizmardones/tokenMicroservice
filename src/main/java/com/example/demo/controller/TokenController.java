@@ -13,6 +13,8 @@ import com.example.demo.dto.TokenResponseDTO;
 import com.example.demo.dto.ValidTokenResponse;
 import com.example.demo.service.TokenService;
 
+import static com.example.demo.utils.SanitizationUtil.sanitizeInput;
+
 @RestController
 @RequestMapping("/v1/token")
 public class TokenController {
@@ -22,12 +24,12 @@ public class TokenController {
 
 	@GetMapping("/getToken")
 	public TokenResponseDTO getToken(@RequestParam String user, @RequestParam String pass) throws InterruptedException, ExecutionException {
-		return tokenService.getToken(user, pass);
+		return tokenService.getToken(sanitizeInput(user), sanitizeInput(pass));
 	}
 	
 	@GetMapping("/validToken")
 	public ValidTokenResponse validToken(@RequestHeader("Authorization") String token) {
-		return tokenService.validToken(token);
+		return tokenService.validToken(sanitizeInput(token));
 	}
 	
 
